@@ -1,8 +1,6 @@
 import copy
-import numpy as np
 from heapq import heappush, heappop
 
-data=""
 # This particular var can be changed to transform  
 # the program from 8 puzzle(n=3) into 15  
 # puzzle(n=4) and so on ...  
@@ -102,17 +100,13 @@ def newNodes(mats, empty_tile_posi, new_empty_tile_posi,
   
 # func to print the N by N matrix  
 def printMatsrix(mats):  
-    
-   global data
-   for i in range(n):
-      for j in range(n): 
-         print("%s " % (mats[i][j]), end = " ")  
-         data +=mats[i][j]+" "
+      
+    for i in range(n):  
+        for j in range(n):  
+            print("%d " % (mats[i][j]), end = " ")  
               
-      print()  
-      data +="\n"
-   data +="\n"
-
+        print()  
+  
 # func to know if (x, y) is a valid or invalid  
 # matrix coordinates  
 def isSafe(x, y):  
@@ -202,14 +196,4 @@ final = [ [ 1, 2, 3 ],
 empty_tile_posi = [ 1, 2 ]  
   
 # Method call for solving the puzzle  
-# solve(initial, empty_tile_posi, final)  
-def searchAlgorithm(start, goal):
-   global data
-   data=""
-   # initial[3][3]
-   initial = np.reshape(start, (-1, 3))
-   final = np.reshape(goal, (-1, 3))
-   solve(initial, empty_tile_posi, final)  
-   # print(data)
-
-   return data
+solve(initial, empty_tile_posi, final)  
